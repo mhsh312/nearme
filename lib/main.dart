@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:nearme/pages/auth-page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'pages/auth-gate.dart';
 
-import 'services/auth.dart';
+import 'package:cloudinary_url_gen/cloudinary.dart';
+import 'package:cloudinary_flutter/cloudinary_context.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
+  CloudinaryContext.cloudinary = Cloudinary.fromCloudName(
+    cloudName: 'dfdrkayfb',
+  );
+  // CloudinaryObject.fromCloudName(cloudName: 'dfdrkayfb');
   runApp(const MyApp());
 }
 
